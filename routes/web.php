@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\NessController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    return view('home');
-});
-
-Route::get('/parent', function () {
-    return view('admin.parent');
-});
-
-Route::resource('/about', AboutController::class);
-
-Route::get('/profile-index', [NessController::class, 'index'])->name('NessRoute');
+// Route for AdminController with Resource
+Route::resource('admin', AdminController::class);
+Route::resource('category', CategoryController::class);
